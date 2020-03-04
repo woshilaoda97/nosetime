@@ -8,13 +8,11 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, { type, payload }) {
-  let newState = JSON.parse(JSON.stringify(state))
-
+  let newState = JSON.parse(JSON.stringify(state));
+  
   switch (type) {
     case types.GET_ARTICLE_LIST:
-      console.log(types.GET_ARTICLE_LIST)
       newState.newestList = payload;
-      console.log(payload)
       break;
     default:
       break;

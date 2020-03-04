@@ -2,22 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getList } from '@/redux/article.redux';
 
+import Search from './components/Search';
+import Tab from './components/Tab'
+
 @connect(
-  state=>state,
+  state=>state.article,
   {
     getList
   }
 )
+
 class Home extends Component {
-  
   componentDidMount() {
-    console.log(this.props);
-    this.props.getList()
+    this.props.getList();
   }
   render() {
     return (
       <div>
-        Homeasd
+        <Search/>
+        <Tab/>
       </div>
     )
   }

@@ -2,7 +2,8 @@ const {
   override, 
   fixBabelImports,
   addWebpackAlias,
-  addDecoratorsLegacy
+  addDecoratorsLegacy,
+  addLessLoader
 } = require('customize-cra');
 
 const path = require('path');
@@ -17,6 +18,11 @@ module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd-mobile',
     style: 'css',
+  }),
+  //添加less-loader
+  addLessLoader({
+    javascriptEnabled: true,
+    localIdentName: "[local]--[hash:base64:5]"
   }),
   //配置装饰器
   addDecoratorsLegacy(),
