@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import { withRouter } from 'react-router';
 import IconFont from 'icon';
-
+//底部导航栏列表
 const tabList = [
   {
     path: '/home',
