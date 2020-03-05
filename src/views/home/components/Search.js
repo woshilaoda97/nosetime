@@ -4,10 +4,9 @@ import styles from './search.module.less';
 
 class Search extends Component {
   render() {
-    console.log(styles.wrap)
     return (
       <div className = {styles.wrap}>
-        <SearchBar placeholder="Search" maxLength={8} />
+        <SearchBar placeholder="搜索香水、品牌、气味、帖子" maxLength={8}/>
       </div>
     );
   }

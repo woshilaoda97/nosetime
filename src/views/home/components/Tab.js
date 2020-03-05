@@ -1,31 +1,44 @@
 import React, { Component } from 'react'
 import { Tabs } from 'antd-mobile';
+import styles from './tab.module.less'
+
+import Newest from './Newest';
+import Special from './Special'
+import Nose from './Nose'
+import Knowledge from './Knowledge'
 
 const tabs = [
-  { title: 'First Tab' },
-  { title: 'Second Tab' },
-  { title: 'Third Tab' },
+  { title: '最新' },
+  { title: '专题' },
+  { title: '寻味' },
+  { title: '知识' },
 ];
 
 
 class Tab extends Component {
+  state = {
+    index: 0,
+  }
+
+  handleOnChange(index) {
+    //如果tab在最新则传入index用于控制newest组件中轮播图是否自动播放
+    this.setState({
+      index
+    })
+  }
+
   render() {
     return (
-      <div>
-        <Tabs tabs={tabs}
-          initialPage={1}
-          onChange={(tab, index) => { console.log('onChange', index, tab); }}
-          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+      <div className = { styles.wrap }>
+        <Tabs tabs={ tabs }
+          initialPage={ 0 }
+          swipeable = { false }
+          onChange={(tab, index) => { this.handleOnChange(index) }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-            Content of first tab
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-            Content of second tab
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-            Content of third tab
-          </div>
+          <Newest tabIndex = { this.state.index }/>
+          <Special/>          
+          <Nose/>
+          <Knowledge/>
         </Tabs>
       </div>
     )
