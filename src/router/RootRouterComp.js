@@ -30,6 +30,10 @@ const Mine = Loadable({
   loader : () => import ('views/mine'),
   loading: Loading
 })
+const ArticleDetail = Loadable({
+  loader : () => import ('views/articleDetail'),
+  loading: Loading
+})
 const NotFound = Loadable({
   loader : () => import ('views/notfound'),
   loading: Loading
@@ -46,6 +50,7 @@ const RootRouterComp = props => {
         <Route path = '/discovery' component = { Discovery }/>
         <Route path = '/mall' component = { Mall }/>
         <Route path = '/mine' component = { Mine }/>
+        <Route path = '/articleDetail' component = { ArticleDetail }/>
         <Route component = { NotFound }/>
       </Switch>
     </div>

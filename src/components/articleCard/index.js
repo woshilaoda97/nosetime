@@ -5,13 +5,13 @@ import { withRouter } from 'react-router'
 @withRouter
 class ArticleCard extends Component {
   handleOnClick(id) {
-    this.props.history.push('/home/articleDetail?' + id)
+    this.props.history.push('/articleDetail?' + id)
   }
 
   render(){
     return (
       <a
-        // onClick = { () => this.handleOnClick(this.props.id) }
+        onClick = { () => this.handleOnClick(this.props.id) }
         style = {{ display: 'inline-block', width: '100%', height: "219px", position: "relative" }}
         className = { styles.font }
       >
