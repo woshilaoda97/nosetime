@@ -9,7 +9,6 @@ const addHandleChange = WrappedComp => {
       this.handleChange = this.handleChange.bind(this)
     }
     handleChange(key, value) {
-      console.log(key, value);
       this.setState({
         [key]: value
       })

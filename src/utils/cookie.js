@@ -1,4 +1,4 @@
-const CookieUtil = {
+const cookieUtil = {
   // 设置cookie
   set : function (name, value, expires, domain, path, secure) {
       var cookieText = "";
@@ -25,7 +25,7 @@ const CookieUtil = {
           cookieValue = "";
       if (cookieStart > -1) {
           var cookieEnd = document.cookie.indexOf (";", cookieStart);
-          if (cookieEnd == -1) {
+          if (cookieEnd === -1) {
               cookieEnd = document.cookie.length;
           }
           cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
@@ -38,4 +38,4 @@ const CookieUtil = {
   }
 };
 
-export default CookieUtil;
+export default cookieUtil;

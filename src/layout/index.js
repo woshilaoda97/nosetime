@@ -13,7 +13,7 @@ const showTabBarWhiteList = [
   '/discovery',
   '/circle',
   '/mall',
-  '/mine',
+  '/mine/index',
 ]
 
 //Container样式

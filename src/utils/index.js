@@ -1,5 +1,5 @@
-import CookieUtil from './cookie';
+import cookieUtil from './cookie';
 
 export {
-  CookieUtil
+  cookieUtil
 }

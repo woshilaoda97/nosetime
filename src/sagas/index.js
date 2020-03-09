@@ -1,9 +1,11 @@
 import { all } from 'redux-saga/effects'
 
-import { watchArticleAsync } from './article.saga';
+import watchArticle from './article.saga';
+import watchUser from './user.saga'
 
 export default function* rootSaga() {
   yield all([
-    watchArticleAsync(),
+    watchArticle(),
+    watchUser()
   ])
 }

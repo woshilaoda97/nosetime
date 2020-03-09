@@ -1,9 +1,10 @@
 import { call, put, takeEvery, take } from 'redux-saga/effects';
-import { types } from '@/redux/article.redux'
-import { article } from 'api'
+import { types } from '@/redux/article.redux';
+import { article } from 'api';
 
 //获取最新newest列表
 function* getArticleListAsync() {
+  console.log(123)
   const res = yield call(article.getList)
   yield put({ type: types.GET_ARTICLE_LIST, payload:res.data })
 }
@@ -28,7 +29,7 @@ function* getArticleDetail(action) {
   yield put({type: types.GET_DETAIL, payload:res.data[0]})
 }
 //监听
-function* watchArticleAsync() {
+function* watchArticle() {
   yield takeEvery(types.GET_ARTICLE_LIST_ASYNC, getArticleListAsync)
   yield takeEvery(types.GET_SPECIAL_LIST_ASYNC, getSpecialListAsync)
   yield takeEvery(types.GET_NOSE_LIST_ASYNC, getNoseListAsync)
@@ -36,6 +37,4 @@ function* watchArticleAsync() {
   yield takeEvery(types.GET_DETAIL_ASYNC, getArticleDetail)
 }
 
-export {
-  watchArticleAsync
-}
+export default watchArticle

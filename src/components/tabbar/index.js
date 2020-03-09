@@ -71,7 +71,10 @@ class TabBarExample extends Component {
                 key = { item.path }
                 icon = { <IconFont type = { item.icon }/> }
                 selectedIcon = { <IconFont type = { item.selectedIcon }/> }
-                selected={ this.state.selectedTab === item.path }
+                selected={
+                  //当前路径包含渲染路由path则为选中（包含子路由）
+                  this.props.location.pathname.includes( item.path )
+                }
                 onPress={ this.handleOnPress.bind(this,item.path) }
               />
             )

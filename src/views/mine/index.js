@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import { CookieUtil } from 'utils';
+import { cookieUtil } from 'utils';
 import { Redirect } from 'react-router';
-import { MineRouterComp } from '@/router'
+import { MineRouterComp } from '@/router';
 
 class Mine extends Component {
-  mineCompRender() {
-    return <p>mine</p>
-  }
 //验证token是否跳转登录页
-  checkToken( MineComp ) {
-    const token = CookieUtil.get('token');
+  checkToken() {
+    const token = cookieUtil.get('token');
     return token
-      ? <MineComp/>
+      ? <Redirect to = '/mine/index'/>
       : <Redirect to = '/mine/login'/>;
   }
 
   render() {
     return (
       <div>
-        { this.checkToken( this.mineCompRender ) }
+        { this.checkToken() }
         { <MineRouterComp/> }
       </div>
     )

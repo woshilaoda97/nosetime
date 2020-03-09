@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
 import { DEV_BASE_URL } from 'api/url';
-import { CookieUtil } from 'utils';
+import { cookieUtil } from 'utils';
 
 const instance = axios.create({
   baseURL: DEV_BASE_URL,
@@ -19,12 +19,12 @@ instance.interceptors.request.use(
     //如果请求地址为登录接口
     let url = config.url;
     if(url.includes("login")){
-      CookieUtil.set('token', "");
+      cookieUtil.set('token', "");
       config.headers.Authorization = "";
     }
     //如果请求地址为mine接口
     if(url.includes("mine")){
-      let token = CookieUtil.get('token');
+      let token = cookieUtil.get('token');
       config.headers.Authorization = token;
     }
 
@@ -44,7 +44,7 @@ instance.interceptors.response.use(
   res => {
     //添加token
     if(res.headers.token){
-      CookieUtil.set('token',res.headers.token);
+      cookieUtil.set('token',res.headers.token);
     }
     //隐藏loading
     Toast.hide()

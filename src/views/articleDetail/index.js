@@ -3,6 +3,7 @@ import { getArticleDetail } from '@/redux/article.redux';
 import { connect } from 'react-redux';
 
 import ArticleCard from 'components/articleCard';
+import styles from './index.module.less';
 
 @connect(
   state => state.article.detail,
@@ -15,9 +16,10 @@ class ArticleDetail extends Component {
   //显示内容
   createContent(content) {
     let result = `<p>${content}</p>`;
-    result = result.replace(/http.*\.(jpg|jpeg|gif|png)/g, res => {
+    result = result.replace(/http.*?\.(jpg|jpeg|gif|png)/g, res => {
       return `</p><img src = '${res}' alt = ''/><p>`
     })
+    console.log(result);
     return {__html: result};
   }
 
@@ -29,7 +31,7 @@ class ArticleDetail extends Component {
   render() {
     this.createContent(this.props.content)
     return (
-      <div>
+      <div className = {styles.wrap}>
         <ArticleCard
           id = { this.props.id }
           title = { this.props.title }

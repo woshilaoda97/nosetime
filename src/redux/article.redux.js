@@ -23,7 +23,7 @@ const initialState = {
   detail        : {}
 }
 
-export default function reducer(state = initialState, { type, payload }) {
+export default function article(state = initialState, { type, payload }) {
   let newState = JSON.parse(JSON.stringify(state));
   
   switch (type) {
@@ -79,7 +79,6 @@ export function getKnowledgeList() {
 }
 
 export function getArticleDetail(id) {
-  console.log('action1')
   return {
     type: types.GET_DETAIL_ASYNC,
     payload: {
