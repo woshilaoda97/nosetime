@@ -25,13 +25,13 @@ const Mine = Loadable({
 
 const MineRouterComp = props => {
   return (
-    <div>
+    <React.Fragment>
       <Switch>
         <Route path = '/mine/index' component = { Mine }/>
         <Route path = '/mine/login' component = { Login }/>
         <Route component = { NotFound }/>
       </Switch>
-    </div>
+    </React.Fragment>
   )
 }
 

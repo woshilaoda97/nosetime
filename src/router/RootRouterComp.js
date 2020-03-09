@@ -41,7 +41,7 @@ const NotFound = Loadable({
 
 const RootRouterComp = props => {
   return (
-    <div>
+    <React.Fragment>
       <Switch>
         <Redirect from = '/' to = '/home' exact/>
         <Route path = '/home' component = { Home }/>
@@ -52,7 +52,7 @@ const RootRouterComp = props => {
         <Route path = '/articleDetail' component = { ArticleDetail }/>
         <Route component = { NotFound }/>
       </Switch>
-    </div>
+    </React.Fragment>
   )
 }
 
