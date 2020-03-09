@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { getArticleDetail } from '@/redux/article.redux';
 import { connect } from 'react-redux';
 
+import { useBetterScroll } from '@/HOC';
 import ArticleCard from 'components/articleCard';
 import styles from './index.module.less';
+
 
 @connect(
   state => state.article.detail,
@@ -11,7 +13,10 @@ import styles from './index.module.less';
     getArticleDetail
   }
 )
-
+@useBetterScroll(
+  window.screen.height,
+  'wrap5'
+)
 class ArticleDetail extends Component {
   //显示内容
   createContent(content) {
