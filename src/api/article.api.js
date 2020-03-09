@@ -19,6 +19,10 @@ const article = {
     const res = await axios.get(`${url}?type=knowledge`);
     return res;
   },
+  async getDetail(id) {
+    const res = await axios.get(`${url}?id=${id}`);
+    return res;
+  }
 };
 
 export default article;

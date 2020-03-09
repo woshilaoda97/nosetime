@@ -30,6 +30,7 @@ class Knowledge extends Component {
           {this.props.knowledgeList.map(val => (
             <ArticleCard 
               key = { val.id }
+              id = { val.id }
               title  = { val.title }
               author = { val.author }
               cover  = { val.cover }

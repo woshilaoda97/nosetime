@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
 import { DEV_BASE_URL } from 'api/url';
+import { CookieUtil } from 'utils';
 
 const instance = axios.create({
   baseURL: DEV_BASE_URL,
@@ -14,6 +15,20 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 // 添加请求拦截器
 instance.interceptors.request.use(
   config => {
+    //token
+    //如果请求地址为登录接口
+    let url = config.url;
+    if(url.includes("login")){
+      CookieUtil.set('token', "");
+      config.headers.Authorization = "";
+    }
+    //如果请求地址为mine接口
+    if(url.includes("mine")){
+      let token = CookieUtil.get('token');
+      config.headers.Authorization = token;
+    }
+
+    //loading
     Toast.loading('Loading...', 1, () => {
       console.log('Load complete !!!');
     });
@@ -27,7 +42,13 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
   res => {
+    //添加token
+    if(res.headers.token){
+      CookieUtil.set('token',res.headers.token);
+    }
+    //隐藏loading
     Toast.hide()
+    //验证http状态码
     if (res.status === 200) {
       return res;
     } else {
@@ -35,7 +56,6 @@ instance.interceptors.response.use(
     }
   },
   error => {
-    // 对响应错误做点什么
     return Promise.reject(error);
   }
 );

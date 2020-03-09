@@ -39,7 +39,6 @@ const NotFound = Loadable({
   loading: Loading
 })
 
-
 const RootRouterComp = props => {
   return (
     <div>

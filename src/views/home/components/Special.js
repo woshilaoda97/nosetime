@@ -30,6 +30,7 @@ class Special extends Component {
           {this.props.specialList.map(val => (
             <ArticleCard 
               key = { val.id }
+              id = { val.id }
               title  = { val.title }
               author = { val.author }
               cover  = { val.cover }

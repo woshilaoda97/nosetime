@@ -1,12 +1,18 @@
 export const types = {
   GET_ARTICLE_LIST_ASYNC: 'GET_ARTICLE_LIST_ASYNC',
   GET_ARTICLE_LIST: 'GET_ARTICLE_LIST',
+
   GET_NOSE_LIST_ASYNC: 'GET_NOSE_LIST_ASYNC',
   GET_NOSE_LIST: 'GET_NOSE_LIST',
+
   GET_SPECIAL_LIST_ASYNC: 'GET_SPECIAL_LIST_ASYNC',
   GET_SPECIAL_LIST: 'GET_SPECIAL_LIST',
+
   GET_KNOWLEDGE_LIST_ASYNC: 'GET_KNOWLEDGE_LIST_ASYNC',
   GET_KNOWLEDGE_LIST: 'GET_KNOWLEDGE_LIST',
+
+  GET_DETAIL_ASYNC: "GET_DETAIL_ASYNC",
+  GET_DETAIL: "GET_DETAIL",
 }
 
 const initialState = {
@@ -14,6 +20,7 @@ const initialState = {
   noseList      : [],
   specialList   : [],
   knowledgeList : [],
+  detail        : {}
 }
 
 export default function reducer(state = initialState, { type, payload }) {
@@ -34,6 +41,10 @@ export default function reducer(state = initialState, { type, payload }) {
 
     case types.GET_KNOWLEDGE_LIST:
       newState.knowledgeList = payload;
+      break;
+
+    case types.GET_DETAIL:
+      newState.detail = payload;
       break;
 
     default:
@@ -64,5 +75,15 @@ export function getSpecialList() {
 export function getKnowledgeList() {
   return {
     type: types.GET_KNOWLEDGE_LIST_ASYNC
+  }
+}
+
+export function getArticleDetail(id) {
+  console.log('action1')
+  return {
+    type: types.GET_DETAIL_ASYNC,
+    payload: {
+      id
+    }
   }
 }

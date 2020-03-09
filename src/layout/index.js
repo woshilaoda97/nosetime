@@ -13,7 +13,7 @@ const showTabBarWhiteList = [
   '/discovery',
   '/circle',
   '/mall',
-  '/mine'
+  '/mine',
 ]
 
 //Container样式
@@ -33,7 +33,6 @@ const Container = styled.div`
 class Layout extends Component {
   
   render() {
-    console.log(this.props)
     return (
       <Container>
         <div className = 'main-container'>
