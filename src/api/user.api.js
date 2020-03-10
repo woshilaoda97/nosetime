@@ -7,16 +7,17 @@ const user = {
   //登陆模拟后端验证
   async login({ user, pwd }) {
     let res = await axios.get(`${url}?username=${user}`);
-    console.log(res)
     if ( !res.data.length ){
       return {
         status: 0,
         msg: '用户名不存在'
       }
     }
-    const { password, token } = res.data[0];
+    const { password, token, id } = res.data[0];
+    res = res.data[0];
     if (pwd === password){
-      cookieUtil.set('token', token);
+      cookieUtil.set('token', token, 30);
+      cookieUtil.set('userid', id, 30);
       return {
         status: 1,
         msg: '登陆成功',
@@ -29,12 +30,21 @@ const user = {
       }
     }
   },
+  //通过id获取用户信息
+  async getUserById(id) {
+    let res = await axios.get(`${url}?id=${id}`);
+    res = res.data[0];
+    return {
+      status: 1,
+      msg: '登陆成功',
+      data: res
+    }
+  },
   //注册
   async registry(data) {
     //验证是否重复
     let isHasUser  = await axios.get(`${url}?username=${data.user}`);
     let isHasEmail = await axios.get(`${url}?email=${data.email}`);
-    console.log(isHasEmail.data)
     if (isHasUser.data.length){
       return {
         status: 0,
@@ -48,10 +58,12 @@ const user = {
       }
     }
     //添加
-    await axios.post(url, data);
-    let token = '1235234asd.12425esdfsd.31231qwe'
-    data = { ...data, token }
-    cookieUtil.set('token', token);
+    let fakerToken = '1235234asd.12425esdfsd.31231qwe'
+    data = { ...data, token: fakerToken };
+    let res = await axios.post(url, data);
+    let { id, token } = res.data;
+    cookieUtil.set('token', token, 30);
+    cookieUtil.set('userid', id , 30);
     return {
       status: 1,
       msg: '注册成功',

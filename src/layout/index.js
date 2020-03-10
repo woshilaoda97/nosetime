@@ -3,6 +3,7 @@ import { withRouter } from 'react-router'
 
 import MyTabBar from 'components/tabbar';
 import { RootRouterComp } from '@/router';
+import { autoLogin } from '@/HOC'
 import styled from 'styled-components';
 
 const tabbarHeight = '50px'
@@ -30,6 +31,8 @@ const Container = styled.div`
     /* padding-bottom: ${ tabbarHeight } */
   }
 `
+
+@autoLogin
 @withRouter
 class Layout extends Component {
   

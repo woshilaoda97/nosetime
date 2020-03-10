@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import { cookieUtil } from 'utils';
-import { Redirect } from 'react-router';
 import { MineRouterComp } from '@/router';
 
 class Mine extends Component {
-//验证token是否跳转登录页
-  checkToken() {
-    const token = cookieUtil.get('token');
-    return token
-      ? <Redirect to = '/mine/index'/>
-      : <Redirect to = '/mine/lr'/>;
-  }
-
   render() {
-    console.log('render');
     return (
       <div>
-        {/* { this.checkToken() } */}
         { <MineRouterComp/> }
       </div>
     )

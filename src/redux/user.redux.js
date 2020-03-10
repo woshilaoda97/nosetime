@@ -3,6 +3,8 @@ export const types = {
   GET_USER_INFO: 'GET_USER_INFO',
 
   REGISTRY: 'REGISTRY',
+
+  GET_USER_BY_ID: 'GET_USER_BY_ID',
 }
 
 const initState = {
@@ -42,6 +44,16 @@ export function registry (info) {
     type: types.REGISTRY,
     payload: {
       userInfo: info
+    }
+  }
+}
+
+export function getUserById (id) {
+  console.log('getUserById')
+  return {
+    type: types.GET_USER_BY_ID,
+    payload: {
+      id
     }
   }
 }
