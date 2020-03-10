@@ -5,7 +5,6 @@ import MineMain from './main';
 
 class MineIndex extends Component {
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <MineHeader/>

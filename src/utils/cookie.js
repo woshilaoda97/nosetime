@@ -1,6 +1,6 @@
 const cookieUtil = {
   // 设置cookie
-  set: function (name, value, expires, domain, path, secure) {
+  set: function (name, value, expires) {
     var cookieText = "";
     cookieText += encodeURIComponent(name) + "=" + encodeURIComponent(value);
     if (expires) {
@@ -8,15 +8,7 @@ const cookieUtil = {
       date.setDate(date.getDate() + expires);
       cookieText += "; expires=" + date;
     }
-    if (path) {
-      cookieText += "; path=" + path;
-    }
-    if (domain) {
-      cookieText += "; domain=" + domain;
-    }
-    if (secure) {
-      cookieText += "; secure";
-    }
+    cookieText += "; path=/";
     document.cookie = cookieText;
   },
   // name=value; expires=expiration_time; path=domain_path; domain=domain_name; secure

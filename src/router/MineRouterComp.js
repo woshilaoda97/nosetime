@@ -21,6 +21,10 @@ const Mine = Loadable({
   loader : () => import ('views/mine/components'),
   loading: Loading
 })
+const Setting = Loadable({
+  loader : () => import ('views/setting'),
+  loading: Loading
+})
 
 function checkToken() {
   const token = cookieUtil.get('token');
@@ -36,9 +40,9 @@ const MineRouterComp = props => {
         {
           checkToken()
         }
-        {/* <Redirect from = '/mine/' to= '/mine/index' exact/> */}
         <Route path = '/mine/index' component = { Mine }/>
         <Route path = '/mine/lr' component = { LoginRegistry }/>
+        <Route path = '/mine/setting' component = { Setting }/>
         <Route component = { NotFound }/>
       </Switch>
     </React.Fragment>
