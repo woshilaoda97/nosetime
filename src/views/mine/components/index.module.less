@@ -1,15 +1,52 @@
 .header {
+  position: relative;
   height: 200px;
   background: linear-gradient(-45deg, #9b88d1, #dca1eb);
   overflow: hidden;
   figure {
+    position: relative;
     width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    overflow: hidden;
     margin: 40px auto 0;
-    img {
-      width: 100%
+    div{
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      overflow: hidden;
+      img {
+        width: 100%
+      }
+    }
+    figcaption {
+      position: absolute;
+      z-index: 10;
+      color: white;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 16px;
+      margin: 0 auto;
+    }
+  }
+  nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+
+    li {
+      flex: 1;
+      text-align: center;
+      color: white;
+      line-height: 50px
+    }
+  }
+}
+
+.main {
+  :global {
+    .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content .am-grid-text {
+      color: #707070;
     }
   }
 }
