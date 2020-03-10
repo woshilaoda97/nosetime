@@ -1,10 +1,9 @@
-import { call, put, takeEvery, take } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { types } from '@/redux/article.redux';
 import { article } from 'api';
 
 //获取最新newest列表
 function* getArticleListAsync() {
-  console.log(123)
   const res = yield call(article.getList)
   yield put({ type: types.GET_ARTICLE_LIST, payload:res.data })
 }

@@ -36,6 +36,8 @@ IconFont.propTypes = {
     '#icon-selected-home',
     '#icon-unselected-eye',
     '#icon-selected-eye',
+    '#icon-login_pwd',
+    '#icon-login_user'
   ]),
   style: PropTypes.object,
 }

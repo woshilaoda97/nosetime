@@ -1,0 +1,56 @@
+.wrap {
+  padding: 0 30px;
+  background: #191919 url(../../../assets/img/login_bg.png) no-repeat center top/50% 25%;
+  overflow: hidden;
+  :global {
+    .am-list {
+      margin-top: 60%;
+    }
+    .am-list-item  {
+      background-color: #191919;
+    }
+    .am-list-item .am-input-label {
+      color: #eee
+    }
+    .am-list-item .am-input-control input {
+      color: #ccc
+    }
+    .am-list .am-list-body::before {
+      background-color: #191919;
+    }
+    .am-list .am-list-body::after {
+      background-color: #191919;
+    }
+    .am-list-item .am-input-control input {
+      &::placeholder {
+        font-size: 14px
+      }
+    }
+    .am-list-item .am-input-label.am-input-label-5 {
+      width: 50px
+    }
+    .am-navbar {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      background-color: transparent
+    }
+    .am-button-ghost {
+      display: block;
+    }
+    .am-button-ghost::before {
+      border: none!important;
+    }
+  }
+}
+.login_btn {
+  margin: 30px auto 0;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 17.5px;
+  font-size: 14px;
+  background-image: linear-gradient(-45deg, #ba3e7d, #bd3ca5);
+  color: #eee;
+  text-align: center;
+}

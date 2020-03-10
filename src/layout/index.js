@@ -26,7 +26,8 @@ const Container = styled.div`
   }
   .main-container {
     box-sizing: content-box;
-    padding-bottom: ${ tabbarHeight }
+    height: ${ window.screen.height - tabbarHeight };
+    /* padding-bottom: ${ tabbarHeight } */
   }
 `
 @withRouter

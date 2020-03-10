@@ -110,7 +110,14 @@
       "sex": "male",
       "age": "24",
       "desc": "爱画画的程序员",
-      "token": "1235234asd.12425esdfsd.31231qwe"
+      "token": "1235234asd.12425esdfsd.31231qwe",
+      "tel": "17857093654"
+    },
+    {
+      "email": "woshilaoda98@gmail.com",
+      "user": "pang",
+      "pwd": "9c1c01dc3ac1445a500251fc34a15d3e75a849df",
+      "id": 2
     }
   ]
 }

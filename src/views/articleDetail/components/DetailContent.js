@@ -25,7 +25,6 @@ class DetailContent extends Component {
     result = result.replace(/http.*?\.(jpg|jpeg|gif|png)/g, res => {
       return `</p><img src = '${res}' alt = ''/><p>`
     })
-    console.log(result);
     return {__html: result};
   }
 

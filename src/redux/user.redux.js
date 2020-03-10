@@ -1,6 +1,8 @@
 export const types = {
   LOGIN: 'LOGIN',
-  GET_USER_INFO: 'GET_USER_INFO'
+  GET_USER_INFO: 'GET_USER_INFO',
+
+  REGISTRY: 'REGISTRY',
 }
 
 const initState = {
@@ -29,6 +31,15 @@ export default function user (state = initState, { type, payload }) {
 export function login (info) {
   return {
     type: types.LOGIN,
+    payload: {
+      userInfo: info
+    }
+  }
+}
+
+export function registry (info) {
+  return {
+    type: types.REGISTRY,
     payload: {
       userInfo: info
     }

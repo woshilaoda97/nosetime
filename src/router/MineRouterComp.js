@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { cookieUtil } from 'utils';
 import {
   Switch,
-  Redirect,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import Loadable from 'react-loadable';
@@ -13,8 +13,8 @@ const NotFound = Loadable({
   loader : () => import ('views/notfound'),
   loading: Loading
 })
-const Login = Loadable({
-  loader : () => import ('views/login'),
+const LoginRegistry = Loadable({
+  loader : () => import ('views/loginRegistry'),
   loading: Loading
 })
 const Mine = Loadable({
@@ -22,13 +22,23 @@ const Mine = Loadable({
   loading: Loading
 })
 
+function checkToken() {
+  const token = cookieUtil.get('token');
+  return token
+    ? <Redirect from = '/mine/' to = '/mine/index' exact/>
+    : <Redirect from = '/mine/' to = '/mine/lr' exact/>;
+}
 
 const MineRouterComp = props => {
   return (
     <React.Fragment>
       <Switch>
+        {
+          checkToken()
+        }
+        {/* <Redirect from = '/mine/' to= '/mine/index' exact/> */}
         <Route path = '/mine/index' component = { Mine }/>
-        <Route path = '/mine/login' component = { Login }/>
+        <Route path = '/mine/lr' component = { LoginRegistry }/>
         <Route component = { NotFound }/>
       </Switch>
     </React.Fragment>

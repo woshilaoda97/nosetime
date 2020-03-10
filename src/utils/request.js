@@ -49,7 +49,7 @@ instance.interceptors.response.use(
     //隐藏loading
     Toast.hide()
     //验证http状态码
-    if (res.status === 200) {
+    if (res.status === 200 || 201) {
       return res;
     } else {
       Promise.reject(res);

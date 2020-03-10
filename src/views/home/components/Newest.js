@@ -34,9 +34,9 @@ class Newest extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Carousel
-          autoplay={this.props.tabIndex === 0}
+          autoplay
           infinite
         >
           {this.state.picList.map(val => (
@@ -59,7 +59,7 @@ class Newest extends Component {
             cover  = { val.cover }
           />
         ))}
-      </div>
+      </React.Fragment>
     )
   }
 }

@@ -16,7 +16,7 @@ const useBetterScroll = (height, cn) => WrappedComp => {
     render() {
       return(
         <div className = {cn} style={{ height,width:'100%' }}>
-          <div className = '.content'>
+          <div className = 'content'>
             <WrappedComp { ...this.props }/>
           </div>
         </div>

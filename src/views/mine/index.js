@@ -9,13 +9,14 @@ class Mine extends Component {
     const token = cookieUtil.get('token');
     return token
       ? <Redirect to = '/mine/index'/>
-      : <Redirect to = '/mine/login'/>;
+      : <Redirect to = '/mine/lr'/>;
   }
 
   render() {
+    console.log('render');
     return (
       <div>
-        { this.checkToken() }
+        {/* { this.checkToken() } */}
         { <MineRouterComp/> }
       </div>
     )
